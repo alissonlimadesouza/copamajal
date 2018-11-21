@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Nov-2018 às 03:51
+-- Generation Time: 21-Nov-2018 às 22:44
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -83,23 +83,80 @@ CREATE TABLE `jogadores` (
 --
 
 INSERT INTO `jogadores` (`idJogador`, `nomeJogador`, `idadeJogador`, `rgJogador`, `statusJogador`, `totalAmarelo`, `totalVermelho`, `totalGol`) VALUES
-(1, 'Alisson Lima De Souza', '2018-11-03', 04159193713, 0, 0, 8, 0),
+(1, 'Alisson Lima De Souza', '2018-11-03', 04159193713, 0, 0, 8, 17),
 (2, 'sergio Costa de lima', '1982-03-12', 04294967295, 0, 0, 4, 0),
-(3, 'mario', '1980-04-21', 04294967295, 0, 0, 0, 0),
-(6, 'JoÃ£o Silva', '2018-11-03', 00000123543, 0, 0, 2, 0),
-(7, 'Matheus', '2018-08-27', 00008876765, 0, 0, 3, 10),
-(8, 'Thiago Silva', '2018-12-27', 00000023423, 0, 0, 4, 3),
-(9, 'AdÃ£o Pereira', '1992-12-12', 00000234456, 0, 0, 1, 0),
+(3, 'mario', '1980-04-21', 04294967295, 0, 0, 0, 8),
+(6, 'JoÃ£o Silva', '2018-11-03', 00000123543, 0, 0, 3, 19),
+(7, 'Matheus', '2018-08-27', 00008876765, 0, 0, 3, 6),
+(8, 'Thiago Silva', '2018-12-27', 00000023423, 0, 0, 4, 2),
+(9, 'AdÃ£o Pereira', '1992-12-12', 00000234456, 0, 0, 1, 27),
 (10, 'Rui Felipe', '1985-02-13', 00000234234, 0, 0, 3, 10),
-(11, 'Nando Silva', '2018-11-03', 01233453453, 0, 0, 0, 0),
-(12, 'roberto thales', '2018-08-27', 00002345235, 0, 0, 3, 7),
-(13, 'marcos macedo oliveira', '2018-08-27', 00452352354, 0, 12, 5, 0),
-(14, 'marciel pereira', '2018-08-30', 00000013213, 0, 0, 1, 3),
+(11, 'Nando Silva', '2018-11-03', 01233453453, 0, 0, 0, 20),
+(12, 'roberto thales', '2018-08-27', 00002345235, 0, 0, 3, 9),
+(13, 'marcos macedo oliveira', '2018-08-27', 00452352354, 0, 12, 5, 3),
+(14, 'marciel pereira', '2018-08-30', 00000013213, 0, 0, 1, 0),
 (15, 'JoÃ£o cosme de araujo', '1984-02-05', 00125487549, 0, 0, 1, 0),
 (16, 'Fernando magalhaes', '2018-09-28', 03453534534, 0, 0, 2, 0),
 (17, 'Rui costa', '2018-10-10', 04294967295, 0, 0, 1, 0),
 (18, 'Beto Rui', '2018-10-23', 00000002342, 0, 0, 2, 0),
-(21, 'dario', '2018-10-30', 00000001234, 0, 0, 0, 0);
+(21, 'dario', '2018-10-30', 00000001234, 0, 0, 0, 11),
+(22, 'Julian', '2018-11-21', 00000042324, 0, 0, 1, 8),
+(23, 'Lionel', '2018-11-21', 00000000645, 0, 0, 0, 4),
+(24, 'Lothar', '2018-11-16', 00000035789, 0, 0, 1, 2),
+(25, 'Luka', '2018-11-04', 00415919234, 0, 0, 1, 2),
+(26, 'Neymar', '2018-11-08', 00000041345, 0, 0, 0, 0),
+(27, 'RomÃ¡rio', '2018-11-21', 00000007896, 0, 0, 0, 0),
+(28, 'Salvatore', '2018-11-21', 00000000345, 0, 0, 0, 0),
+(29, 'Santiago', '2018-11-21', 00000000456, 0, 0, 1, 0),
+(30, 'Wayne', '2018-11-21', 00000012380, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `placar_partidas`
+--
+
+CREATE TABLE `placar_partidas` (
+  `idPlacarPartidas` int(11) NOT NULL,
+  `idTimeHasTorneio` int(11) NOT NULL,
+  `idTime` int(11) NOT NULL,
+  `totalGol` int(11) NOT NULL,
+  `pontoPositivo` int(11) NOT NULL,
+  `golNegativo` int(11) NOT NULL,
+  `vitoria` int(11) NOT NULL,
+  `derrota` int(11) NOT NULL,
+  `empate` int(11) NOT NULL,
+  `totalPonto` int(11) NOT NULL,
+  `saldoGol` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `placar_partidas`
+--
+
+INSERT INTO `placar_partidas` (`idPlacarPartidas`, `idTimeHasTorneio`, `idTime`, `totalGol`, `pontoPositivo`, `golNegativo`, `vitoria`, `derrota`, `empate`, `totalPonto`, `saldoGol`) VALUES
+(1, 1, 1, 20, 3, 1, 1, 0, 0, 3, 19),
+(2, 1, 2, 1, 0, 20, 0, 1, 0, 0, -19),
+(3, 6, 1, 1, 0, 9, 0, 1, 0, 0, -8),
+(4, 6, 2, 9, 3, 1, 1, 0, 0, 3, 8),
+(5, 2, 5, 19, 3, 7, 1, 0, 0, 3, 12),
+(6, 2, 3, 7, 0, 19, 0, 1, 0, 0, -12),
+(7, 3, 1, 0, 0, 0, 0, 0, 1, 0, 0),
+(8, 3, 6, 0, 0, 0, 0, 0, 1, 0, 0),
+(9, 5, 3, 1, 0, 20, 0, 1, 0, 0, -19),
+(10, 5, 2, 20, 3, 1, 1, 0, 0, 6, 19),
+(11, 4, 1, 7, 3, 3, 1, 0, 0, 6, 4),
+(12, 4, 4, 3, 0, 7, 0, 1, 0, 0, -4),
+(13, 10, 8, 9, 0, 10, 0, 1, 0, 0, -1),
+(14, 10, 4, 10, 3, 9, 1, 0, 0, 3, 1),
+(15, 7, 8, 3, 3, 0, 1, 0, 0, 3, 3),
+(16, 7, 7, 0, 0, 3, 0, 1, 0, 0, -3),
+(17, 8, 6, 3, 0, 10, 0, 1, 0, 0, -7),
+(18, 8, 4, 10, 3, 3, 1, 0, 0, 6, 7),
+(19, 11, 8, 4, 0, 9, 0, 1, 0, 0, -5),
+(20, 11, 2, 9, 3, 4, 1, 0, 0, 9, 5),
+(21, 9, 4, 5, 0, 7, 0, 1, 0, 0, -2),
+(22, 9, 2, 7, 3, 5, 1, 0, 0, 12, 2);
 
 -- --------------------------------------------------------
 
@@ -110,21 +167,29 @@ INSERT INTO `jogadores` (`idJogador`, `nomeJogador`, `idadeJogador`, `rgJogador`
 CREATE TABLE `times` (
   `idTime` int(11) NOT NULL,
   `nomeTime` varchar(100) NOT NULL,
-  `totalGols` int(11) NOT NULL
+  `totalGols` int(11) NOT NULL,
+  `totalPonto` int(11) NOT NULL,
+  `totalVitoria` int(11) NOT NULL,
+  `totalEmpate` int(11) NOT NULL,
+  `totalDerrota` int(11) NOT NULL,
+  `golPositivo` int(11) NOT NULL,
+  `golContra` int(11) NOT NULL,
+  `saldoGol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `times`
 --
 
-INSERT INTO `times` (`idTime`, `nomeTime`, `totalGols`) VALUES
-(1, 'Sambaitiba', 0),
-(2, 'Borussia', 0),
-(3, ' River ', 16),
-(4, 'Dom Bosco', 0),
-(5, 'Mangueirinha', 17),
-(6, 'Ctb', 0),
-(7, 'Real Madri', 0);
+INSERT INTO `times` (`idTime`, `nomeTime`, `totalGols`, `totalPonto`, `totalVitoria`, `totalEmpate`, `totalDerrota`, `golPositivo`, `golContra`, `saldoGol`) VALUES
+(1, 'Sambaitiba', 28, 6, 2, 1, 1, 28, 13, 15),
+(2, 'Borussia', 46, 12, 4, 0, 1, 46, 31, 15),
+(3, ' River ', 8, 0, 0, 0, 2, 8, 39, -31),
+(4, 'Dom Bosco', 28, 6, 2, 0, 2, 28, 26, 2),
+(5, 'Mangueirinha', 19, 3, 1, 0, 0, 19, 7, 12),
+(6, 'Ctb', 3, 0, 0, 1, 1, 3, 10, -7),
+(7, 'Real Madri', 0, 0, 0, 0, 1, 0, 3, -3),
+(8, 'Milan', 16, 3, 1, 0, 2, 16, 19, -3);
 
 -- --------------------------------------------------------
 
@@ -159,7 +224,16 @@ INSERT INTO `times_has_jogadores` (`idTimesHasJogadores`, `idTime`, `idJogador`)
 (37, 7, 18),
 (39, 1, 1),
 (41, 1, 21),
-(42, 6, 13);
+(42, 6, 13),
+(43, 8, 22),
+(44, 8, 23),
+(45, 8, 24),
+(46, 8, 25),
+(47, 1, 26),
+(49, 2, 28),
+(50, 4, 29),
+(51, 4, 30),
+(52, 4, 27);
 
 -- --------------------------------------------------------
 
@@ -184,7 +258,17 @@ CREATE TABLE `times_has_torneios` (
 --
 
 INSERT INTO `times_has_torneios` (`idTimeHasTorneiro`, `idTime`, `idTimeB`, `idTorneiro`, `dataJogo`, `horaJogo`, `statusLancamento`, `dataLancamento`, `horaLancamento`) VALUES
-(17, 3, 5, 1, '2018-11-08', '12:12:00', 1, '2018-11-08', '00:27:30');
+(1, 1, 2, 1, '2018-11-16', '15:15:00', 1, '2018-11-21', '11:57:01'),
+(2, 5, 3, 1, '2018-11-21', '18:50:00', 1, '2018-11-21', '12:35:42'),
+(3, 1, 6, 1, '2018-11-22', '15:15:00', 1, '2018-11-21', '12:35:59'),
+(4, 1, 4, 1, '2018-11-21', '15:15:00', 1, '2018-11-21', '12:38:05'),
+(5, 3, 2, 1, '2018-11-23', '15:16:00', 1, '2018-11-21', '12:36:50'),
+(6, 1, 2, 1, '2018-11-21', '12:13:00', 1, '2018-11-21', '12:03:01'),
+(7, 8, 7, 1, '2018-11-23', '15:15:00', 1, '2018-11-21', '19:08:23'),
+(8, 6, 4, 1, '2018-11-15', '21:20:00', 1, '2018-11-21', '19:09:38'),
+(9, 4, 2, 1, '2018-11-29', '21:20:00', 1, '2018-11-21', '19:13:06'),
+(10, 8, 4, 1, '2018-11-29', '20:20:00', 1, '2018-11-21', '19:06:12'),
+(11, 8, 2, 1, '2018-12-12', '22:00:00', 1, '2018-11-21', '19:10:49');
 
 -- --------------------------------------------------------
 
@@ -199,6 +283,13 @@ CREATE TABLE `time_has_torneio_has_cartoes` (
   `IdJogador` int(11) NOT NULL,
   `quantidadeCartoes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `time_has_torneio_has_cartoes`
+--
+
+INSERT INTO `time_has_torneio_has_cartoes` (`idTimeHasTorneiroHasCartao`, `idTimeHasTorneio`, `idCartao`, `IdJogador`, `quantidadeCartoes`) VALUES
+(5, 11, 2, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -219,11 +310,33 @@ CREATE TABLE `time_has_torneio_has_gols` (
 --
 
 INSERT INTO `time_has_torneio_has_gols` (`idTimeHasTorneioHasGol`, `idTimeHasTorneio`, `idGol`, `IdJogador`, `quantidadeGol`) VALUES
-(1, 17, 1, 7, 10),
-(2, 17, 1, 8, 3),
-(3, 17, 1, 14, 3),
-(4, 17, 1, 12, 7),
-(5, 17, 1, 10, 10);
+(1, 1, 1, 1, 10),
+(2, 1, 1, 21, 10),
+(3, 1, 1, 9, 1),
+(4, 6, 1, 1, 1),
+(5, 6, 1, 6, 9),
+(6, 2, 1, 12, 9),
+(7, 2, 1, 10, 10),
+(8, 2, 1, 7, 6),
+(9, 2, 1, 8, 1),
+(10, 5, 1, 8, 1),
+(11, 5, 1, 9, 10),
+(12, 5, 1, 6, 10),
+(13, 4, 1, 1, 6),
+(14, 4, 1, 21, 1),
+(15, 4, 1, 3, 3),
+(16, 10, 1, 22, 6),
+(17, 10, 1, 23, 1),
+(18, 10, 1, 25, 2),
+(19, 10, 1, 11, 10),
+(20, 7, 1, 23, 3),
+(21, 8, 1, 13, 3),
+(22, 8, 1, 11, 10),
+(23, 11, 1, 22, 2),
+(24, 11, 1, 24, 2),
+(25, 11, 1, 9, 9),
+(26, 9, 1, 3, 5),
+(27, 9, 1, 9, 7);
 
 -- --------------------------------------------------------
 
@@ -264,6 +377,14 @@ ALTER TABLE `gols`
 --
 ALTER TABLE `jogadores`
   ADD PRIMARY KEY (`idJogador`);
+
+--
+-- Indexes for table `placar_partidas`
+--
+ALTER TABLE `placar_partidas`
+  ADD PRIMARY KEY (`idPlacarPartidas`),
+  ADD KEY `idTimeHasTorneio` (`idTimeHasTorneio`),
+  ADD KEY `idTime` (`idTime`);
 
 --
 -- Indexes for table `times`
@@ -331,32 +452,37 @@ ALTER TABLE `gols`
 -- AUTO_INCREMENT for table `jogadores`
 --
 ALTER TABLE `jogadores`
-  MODIFY `idJogador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idJogador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+--
+-- AUTO_INCREMENT for table `placar_partidas`
+--
+ALTER TABLE `placar_partidas`
+  MODIFY `idPlacarPartidas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `times`
 --
 ALTER TABLE `times`
-  MODIFY `idTime` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idTime` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `times_has_jogadores`
 --
 ALTER TABLE `times_has_jogadores`
-  MODIFY `idTimesHasJogadores` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `idTimesHasJogadores` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `times_has_torneios`
 --
 ALTER TABLE `times_has_torneios`
-  MODIFY `idTimeHasTorneiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idTimeHasTorneiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `time_has_torneio_has_cartoes`
 --
 ALTER TABLE `time_has_torneio_has_cartoes`
-  MODIFY `idTimeHasTorneiroHasCartao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTimeHasTorneiroHasCartao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `time_has_torneio_has_gols`
 --
 ALTER TABLE `time_has_torneio_has_gols`
-  MODIFY `idTimeHasTorneioHasGol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idTimeHasTorneioHasGol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `torneios`
 --
@@ -365,6 +491,13 @@ ALTER TABLE `torneios`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Limitadores para a tabela `placar_partidas`
+--
+ALTER TABLE `placar_partidas`
+  ADD CONSTRAINT `placar_partidas_ibfk_1` FOREIGN KEY (`idTimeHasTorneio`) REFERENCES `times_has_torneios` (`idTimeHasTorneiro`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `placar_partidas_ibfk_2` FOREIGN KEY (`idTime`) REFERENCES `times` (`idTime`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `times_has_jogadores`
